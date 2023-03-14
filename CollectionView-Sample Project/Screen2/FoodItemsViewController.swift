@@ -8,7 +8,7 @@
 import UIKit
 
 class FoodItemsViewController: UIViewController {
-var foodImages = [UIImage(named: "Bakery"),UIImage(named:"Diary"),UIImage(named:"SeaFoods"),UIImage(named:"Snacks")]
+var foodImages = [UIImage(named: "BakeryItem"),UIImage(named:"Diary"),UIImage(named:"SeaFoods"),UIImage(named:"Snacks")]
      var foodNames = ["Bakery","    Diary","SeaFoods","Snacks"]
     
     @IBOutlet var titleLabel:UILabel!
@@ -40,20 +40,12 @@ extension FoodItemsViewController:UICollectionViewDataSource{
     }
 extension FoodItemsViewController:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = ((collectionView.frame.size.width)/4)
-       
-        return CGSize(width: width, height:width)
+        let width = (collectionView.frame.size.width-40)/4
+        
+       return CGSize(width:width, height:width)
     }
-    func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,
-minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0.0
-       }
-       
-       func collectionView(_ collectionView: UICollectionView,
-                           layout collectionViewLayout: UICollectionViewLayout,
-                           minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-           return 0.0
-       }
+    
+    
     
     
     
