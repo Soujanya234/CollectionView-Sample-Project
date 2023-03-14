@@ -30,3 +30,31 @@ extension PracticeCustomCellViewController:UICollectionViewDataSource{
     }
     
 }
+extension PracticeCustomCellViewController:UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.item == 0{
+            performSegue(withIdentifier:"Segue1", sender: self)
+            
+        }
+        else if indexPath.item == 1{
+            performSegue(withIdentifier: "Segue2", sender: self)
+            
+        }
+    }
+    override func prepare(for segue:  UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Segue1"{
+            let firstVC = segue.destination as? Screen1ViewController
+            firstVC?.screenColor = .green
+            firstVC?.screenTitle = "First Screen Title"
+            
+            
+        }
+        else if segue.identifier == "Segue2"{
+            let secondVC = segue.destination as?
+            Screen2ViewController
+            secondVC?.screenColor = .red
+            secondVC?.screenTitle = "Second Screen Title"
+            
+        }
+    }
+}

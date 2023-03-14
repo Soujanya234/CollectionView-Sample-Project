@@ -32,18 +32,21 @@ extension ToursViewController:UICollectionViewDataSource{
 }
 extension ToursViewController:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = ((collectionView.frame.size.width/4))
-        return CGSize(width: width, height: width)
+        let width = (collectionView.frame.size.width)/4
+        return CGSize(width: width, height:width)
     }
-    func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,
-minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0.0
-       }
-       
-       func collectionView(_ collectionView: UICollectionView,
-                           layout collectionViewLayout: UICollectionViewLayout,
-                           minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-           return 0.0
-       }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets{
+        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+    }
     
+    
+}
+extension ToursViewController:UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.item == 0{
+            performSegue(withIdentifier:"SelectSegue" , sender: self)
+        }
+        
+       
+    }
 }
